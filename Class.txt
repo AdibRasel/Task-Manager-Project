@@ -1,0 +1,2 @@
+Class 20 - Create Redux State Slice Files
+Class 21 Page Routing Setup

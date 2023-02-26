@@ -1,0 +1,14 @@
+.Main_View_Desin{
+    width: 80%;
+    background-color: #e9ecef;
+    margin: auto;
+    height: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px 0px #555;
+}
+.Page_Title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
