@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 
 import MyDesign from "../components/MyDesign/MyDesign"
+import Registration from '../components/Registration/Registration';
 
 
 const RegistrationPage = () => {
@@ -11,6 +12,9 @@ const RegistrationPage = () => {
             <MyDesign>
                 <div className="Page_Title">
                     Registration
+
+                    <Registration />
+
                 </div>
 
 

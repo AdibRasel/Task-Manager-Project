@@ -42,6 +42,14 @@ const MyDesign = (props) => {
                     </form>
                 </div>
                 </nav>
+                <div className="Profile_Item">
+                    <div className="P_Left">
+                        <a href="/LoginPage">Login</a>
+                    </div>
+                    <div className="P_Right">
+                        <a href="/RegistrationPage">Registration</a>
+                    </div>
+                </div>
             </div>
 
             <div className="Main_View_Desin">

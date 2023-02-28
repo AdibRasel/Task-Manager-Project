@@ -1,0 +1,61 @@
+.Total_Task_View{
+    width: 90%;
+    height: 100px;
+}
+.Left_View{
+    float: left;
+    font-size: 30px;
+}
+.Right_View{
+    float: right;
+}
+.Right_View input{
+    width: 150px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+.Right_View button{
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.Totak_Task_Main_View{
+    width: 30%;
+    height: 200px;
+    box-shadow: 0px 0px 5px 1px #333;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 30px;
+}
+.Totak_Task_Main_View_Left{
+    float: left;
+}
+.Totak_Task_Main_View_Left i{
+    color: #ffffff;
+    padding: 10px;
+    background-color: #17a2b8;
+    margin: 5px;
+    border-radius: 5px;
+    transition: 700ms;
+}
+.Totak_Task_Main_View_Left i:hover{
+    color: #fff;
+    background-color: #28a745;
+    cursor: pointer;
+}
+.Totak_Task_Main_View_Right{
+    float: right;
+}
+.Totak_Task_Main_View_Right p{
+    background-color: #28a745;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.View_Section{
+    display: inline;
+}

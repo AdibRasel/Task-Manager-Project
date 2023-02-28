@@ -1,9 +1,11 @@
 import React, {Fragment} from 'react';
+import Canceled from '../components/Canceled/Canceled';
 
 
 import MyDesign from "../components/MyDesign/MyDesign"
 
 const CanceledPage = () => {
+  
     return (
         <Fragment>
 
@@ -12,7 +14,7 @@ const CanceledPage = () => {
                     Cancel
                 </div>
 
-
+                <Canceled />
 
             </MyDesign>
             

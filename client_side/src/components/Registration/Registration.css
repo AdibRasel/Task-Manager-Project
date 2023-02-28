@@ -1,0 +1,31 @@
+.Registration{
+    width: 80%;
+    margin: auto;
+    box-shadow: 0px 0px 5px 1px #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+.Registration h3{
+    text-align: center;
+}
+.input_item{
+    padding: 10px;
+    /* box-shadow: 0px 0px 5px 0px #333;
+    border-radius: 10px; */
+}
+.form-label{
+
+}
+.form-control{
+
+}
+.Submit_btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Submit_btn button{
+    width: 100%;
+}
+.signIn_forgetPassword{
+    text-align: center;
+}

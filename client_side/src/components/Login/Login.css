@@ -1,0 +1,7 @@
+.Login_Form{
+    max-width: 70%;
+    margin: auto;
+    box-shadow: 0px 0px 5px 1px #333;
+    padding: 20px;
+    border-radius: 10px;
+}

@@ -4,6 +4,9 @@ import React, {Fragment} from 'react';
 import MyDesign from "../components/MyDesign/MyDesign"
 
 
+import Create from '../components/Create/Create';
+
+
 const CreatePage = () => {
     return (
         <Fragment>
@@ -12,6 +15,7 @@ const CreatePage = () => {
             <div className="Page_Title">
                 Create
             </div>
+            <Create />
 
 
 

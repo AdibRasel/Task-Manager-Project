@@ -1,0 +1,12 @@
+.Create_Task_Component{
+    width: 80%;
+    margin: auto ;
+}
+.Create_Task_Item{
+
+}
+
+.Create_Task_Component button{
+    margin-top: 10px;
+    width: 100%;
+}

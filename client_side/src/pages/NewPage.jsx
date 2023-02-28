@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 
 import MyDesign from "../components/MyDesign/MyDesign"
+import New from '../components/New/New';
 
 
 const NewPage = () => {
@@ -13,7 +14,7 @@ const NewPage = () => {
                     New 
                 </div>
 
-
+                <New />
 
             </MyDesign>
             
