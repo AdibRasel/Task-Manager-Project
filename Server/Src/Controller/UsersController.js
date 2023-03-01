@@ -7,7 +7,7 @@ exports.Registration=(Req, Res)=>{
     let ReqBody = Req.body;
     UserModel.create(ReqBody, (Err, Data)=>{
         if(Err){
-            Res.status(400).json({status:"Fail", data:Err})
+            Res.status(200).json({status:"Fail", data:Err})
         }else{
             Res.status(200).json({status:"Success", data:Data})
         }

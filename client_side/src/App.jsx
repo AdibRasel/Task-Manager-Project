@@ -13,6 +13,7 @@ import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
 import Page404 from "./pages/Page404";
 import ForgetPassPage from "./pages/ForgetpassPage";
+// import Loder from "./components/FullScreenLoder/Loder";
 //Page Import end
 
 const App = () =>{
@@ -31,6 +32,7 @@ const App = () =>{
           <Route exact path="/RegistrationPage" element={<RegistrationPage/>}/>
           <Route exact path="/ForgetPassPage" element={<ForgetPassPage/>}/>
           <Route exact path="*" element={<Page404/>}/>
+          {/* <Loder /> */}
         </Routes>
       </BrowserRouter>
     </Fragment>

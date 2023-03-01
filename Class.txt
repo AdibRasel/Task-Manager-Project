@@ -2,3 +2,5 @@ Class 20 - Create Redux State Slice Files
 Class 21 Page Routing Setup
 
 Class 32 Registration AP Call 
+
+class 35 , Reistration API Call Redirect to login

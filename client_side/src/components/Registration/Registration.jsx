@@ -1,9 +1,15 @@
 import React, { useRef } from 'react';
 import "./Registration.css"
 
+// Registration Request function import 
+import { RegistrationRequest } from '../../APIRequest/APIRequest';
+import Loder from '../FullScreenLoder/Loder';
+
+
+
 const Registration = () => {
 
-    let EmailRef, FirstNameRef, LastNameRef, MobileRef, PasswordRef = useRef();
+    let EmailRef, FirstNameRef, LastNameRef, MobileRef, PasswordRef, LoderDisplay = useRef();
 
     const OnRegistrationBtn =()=>{
 
@@ -26,7 +32,17 @@ const Registration = () => {
         }else if(Password.length <= 3){
             alert("Please Type your Currect Password")
         }else{
-            alert("Success")
+
+            // LoderDisplay.classList.add("Display_None")
+
+            // alert("Success")
+            RegistrationRequest(Email, FirstName, LastName, Mobile, Password, "").then((result)=>{
+                if(result===true){
+                      alert("Success")
+                }
+
+                // LoderDisplay.classList.remove("Display_None")
+            })
         }
 
 
@@ -71,6 +87,11 @@ const Registration = () => {
                 <a href="">Forget Password</a>
             </div>
            </div>
+
+            <div className="Display_Loder_Component">
+                <Loder />
+            </div>
+
         </div>
     );
 };
