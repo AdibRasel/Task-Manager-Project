@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 import "./Registration.css"
 
 // Registration Request function import 
@@ -10,6 +11,8 @@ import Loder from '../FullScreenLoder/Loder';
 const Registration = () => {
 
     let EmailRef, FirstNameRef, LastNameRef, MobileRef, PasswordRef, LoderDisplay = useRef();
+
+    let navigateUse = useNavigate()
 
     const OnRegistrationBtn =()=>{
 
@@ -38,7 +41,8 @@ const Registration = () => {
             // alert("Success")
             RegistrationRequest(Email, FirstName, LastName, Mobile, Password, "").then((result)=>{
                 if(result===true){
-                      alert("Success")
+                    alert("Success")
+                    navigateUse ("/LoginPage")
                 }
 
                 // LoderDisplay.classList.remove("Display_None")

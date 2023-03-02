@@ -4,3 +4,4 @@ Class 21 Page Routing Setup
 Class 32 Registration AP Call 
 
 class 35 , Reistration API Call Redirect to login
+class 36, User Login Set JWT toekn
