@@ -1,5 +1,8 @@
 import axios from "axios"
 import React, { useRef } from 'react';
+
+import { getToken, setToken, setUserDetails } from "../helper/SessionHelper";
+
 // import { HideLoader, ShowLoader } from "../redux/state-slice/settings-slice"
 // import store from "../redux/stor/store"
 
@@ -79,4 +82,63 @@ export function RegistrationRequest(Email, FirstName, LasttName, Mobile, Passwor
         // return false;
     });
 
+}
+
+
+
+
+// Login Request Function 
+export function LoginRequest(Email, Password){
+    let URL = BaseURL+"/LoginUser";
+
+    let PostBody={"Email":Email, "Password":Password};
+    return axios.post(URL, PostBody).then((Res)=>{
+        if(Res.status===200){
+
+            // Token 
+            setToken(Res.data["Token"]);
+            setUserDetails(Res.data["data"])
+            // Token
+
+            alert("Login Success From API Request")
+            return true;
+        }else{
+            alert("Login Faild From API Request")
+            return false;
+        }
+    }).catch((Err)=>{
+        alert("Login Faild From API Request");
+        return false;
+    })
+}
+
+
+
+// Token 
+    const AxiosHeader ={headers:{"token":getToken()}}
+// Token end 
+
+
+
+// New Task Request 
+export function NewTaskRequest(Title, Description){
+    let URL = BaseURL+"/CreateTask";
+
+    let PostBody = {"title":Title,"description":Description,status: "New"};
+
+    return axios.post(URL, PostBody, AxiosHeader).then((Res)=>{
+
+        if(Res.status===200){
+            alert("Create Task Success from then block API Request");
+            return true
+        }else{
+            alert("Create Task Faild from then block in API Request");
+            return false;
+        }
+
+    }).catch((Err)=>{
+        alert("Create Task Faild From Catch block APIRequest");
+        return false;
+    })
+    
 }

@@ -42,6 +42,7 @@ App.use(Limiter)
 
 
 // Mongo DB Database Connection 
+// let Url = "mongodb+srv://softzone:softzone@softzone.piawnhh.mongodb.net/?retryWrites=true&w=majority"  // ToDo হচ্ছে মঙ্গোডিভি ডাটাবেসের নাম, যে আগেই তৈরি করে নিতে হবে। 
 let Url = "mongodb+srv://softzone:softzone@softzone.piawnhh.mongodb.net/?retryWrites=true&w=majority"  // ToDo হচ্ছে মঙ্গোডিভি ডাটাবেসের নাম, যে আগেই তৈরি করে নিতে হবে। 
 // let OPTION = {username:"", password:""}
 // Mongose.connect(Url, OPTION(error)=>{
