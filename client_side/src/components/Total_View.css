@@ -22,12 +22,13 @@
 }
 .Totak_Task_Main_View{
     width: 30%;
-    height: 200px;
+    height: auto;
     box-shadow: 0px 0px 5px 1px #333;
     padding: 20px;
     border-radius: 10px;
     display: inline-block;
     margin-right: 30px;
+    margin-bottom: 10px;
 }
 .Totak_Task_Main_View_Left{
     float: left;
@@ -58,4 +59,47 @@
 
 .View_Section{
     display: inline;
+}
+
+
+.DashboardBox {
+    display: inline-block;
+}
+
+
+.status_box{
+    overflow: hidden;
+}
+.status_title{
+    float: left;
+}
+.status_staus{
+    float: right;
+    background-color: #28a745;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.status_staus:hover{
+    color: #fff;
+    background-color: #28a745;
+    cursor: pointer;
+}
+
+.Totak_Task_Main_View_Left select{
+    color: black;
+    background-color: #17a2b8;
+}
+
+.Totak_Task_Main_View_Left select:hover{
+    background-color: #28a745;
+    color: white;
+}
+.taskstatustbtn:hover{
+    background-color: #28a745;
+    color: white;
+}
+.datapadding{
+    padding-left: 5px;
 }

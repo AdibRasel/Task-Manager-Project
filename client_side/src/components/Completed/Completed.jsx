@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { TaskListByStatusTwo } from '../../APIRequest/APIRequest';
 
 import "../Total_View.css"
 
 const Completed = () => {
+
+
+    let [DataList, SetDataList]= useState([]);
+
+    useEffect(()=>{
+      
+      TaskListByStatusTwo("Complete").then((Response)=>{
+  
+        SetDataList(Response)
+  
+      })
+    },[])
+
+
+
     return (
         <div>
 
@@ -20,21 +36,25 @@ const Completed = () => {
 
 
 
-                <section className='View_Section'>
-                    <div className="Totak_Task_Main_View">
-                        <h3>Title</h3>
-                        <p>Description</p>
-                        <div className="Totak_Task_Main_View_Left">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <i class="fa-sharp fa-solid fa-file-pen"></i>
-                            <i class="fa-sharp fa-solid fa-trash"></i>
-                        </div>
-                        <div className="Totak_Task_Main_View_Right">
-                            <p>Status</p>
-                        </div>
-                    </div>
-                </section>
-
+                {
+                    DataList.map((item, i)=>{
+                        return <section className='View_Section'>
+                            <div className="Totak_Task_Main_View">
+                                <h3>{item.title}</h3>
+                                <p>{item.description}</p>
+                                <div className="Totak_Task_Main_View_Left">
+                                    <i class="fa-solid fa-calendar-days">{item.CreateDate}</i>
+                                    <i class="fa-sharp fa-solid fa-file-pen"></i>
+                                    <i class="fa-sharp fa-solid fa-trash"></i>
+                                </div>
+                                <div className="Totak_Task_Main_View_Right">
+                                    <p>{item.status}</p>
+                                </div>
+                            </div>
+                         </section> 
+                        // return alert(item.title)
+                    })
+                }
             
 
 

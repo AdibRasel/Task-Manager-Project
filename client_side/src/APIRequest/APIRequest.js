@@ -1,7 +1,13 @@
 import axios from "axios"
-import React, { useRef } from 'react';
+// import React, { useRef } from 'react';
 
 import { getToken, setToken, setUserDetails } from "../helper/SessionHelper";
+
+// React Reducx import
+import store from "../redux/stor/store";
+import { SetCanceledTask, SetComplateTask, SetNewTask, SetProgressTask } from "../redux/state-slice/task-slice";
+// End React Reducx import
+
 
 // import { HideLoader, ShowLoader } from "../redux/state-slice/settings-slice"
 // import store from "../redux/stor/store"
@@ -141,4 +147,129 @@ export function NewTaskRequest(Title, Description){
         return false;
     })
     
+}   
+
+
+
+// Task List By Status 
+export function TaskListByStatus(Status){
+    // let URL = BaseURL+"ListTaskByStatus/"+New;
+    let URL = BaseURL+"/ListTaskByStatus/"+Status;
+
+    axios.get(URL, AxiosHeader).then((Res)=>{
+
+        if(Res.status===200){
+            if(Res.status==="New"){
+                alert("Task Show Success (New) from API Request then block")
+
+                store.dispatch(SetNewTask(Res.data["data"]))
+
+            }
+        }else if(Status==="completed"){
+
+            alert("Task Show Success (completed) from API Request then block")
+
+            store.dispatch(SetComplateTask(Res.data["data"]))
+        
+        }else if(Status==="Canceled"){
+
+            alert("Task Show Success (Canceled) from API Request then block")
+
+            store.dispatch(SetCanceledTask(Res.data["data"]))
+
+
+        }else if(Status==="Progress"){
+
+            alert("Task Show Success (Progress) from API Request then block")
+
+            store.dispatch(SetProgressTask(Res.data["data"]))
+
+
+        }else{
+
+            alert("Error in APIRequest in then block ")
+
+        }
+
+
+    }).catch((Err)=>{
+        alert("Error if APIRequest catch block")
+    })
+
+}
+
+
+
+
+// Task List By Status Two
+export function TaskListByStatusTwo(Status){
+
+    let URL = BaseURL+"/ListTaskByStatus/"+Status;
+
+    // let URL = "/api/v1/ReadProuct"
+    return axios.get(URL, AxiosHeader).then((Response)=>{
+            if(Response.status===200){
+                return Response.data.data
+            }else{
+                return false
+            }
+        }).catch((Error)=>{
+            console.log(Error)
+            return false
+        })
+}
+
+// Total Count Stats Task
+export function TotalCountStatsTask(){
+    let URL = BaseURL+"/TotalCountStatsTask";
+    return axios.get(URL, AxiosHeader).then((Response)=>{
+        if(Response.status===200){
+            return Response.data['data'];
+        }else{
+            return false
+        }
+    }).catch((Err)=>{
+        return false
+    })
+
+}
+
+// Task Delete 
+export function DeleteTask(id){
+    let URL = BaseURL+"/DeleteTask/"+id;
+    return axios.get(URL, AxiosHeader).then((Res)=>{
+
+        if(Response.status===200){
+            alert("Delete Faild in APIRequest then block")
+            return true;
+        }else{
+            alert("Delete Success in APIRequest then block")
+            return false
+        }
+
+    }).catch((Err)=>{
+        alert("Delete Faild in APIRequest catch block")
+        return false
+    })
+
+}
+
+
+//Update Task status
+export function UpdateTaskByStatus(id, status){
+    let URL = BaseURL+"/TaskStatusUpdate/"+id+"/"+status;
+    return axios.get(URL, AxiosHeader).then((Res)=>{
+
+        if(Response.status===200){
+            alert("Update Faild in APIRequest then block")
+            return true;
+        }else{
+            alert("Update Success in APIRequest then block")
+            return false
+        }
+
+    }).catch((Err)=>{
+        alert("Update Faild in APIRequest catch block")
+        return false
+    })
 }
