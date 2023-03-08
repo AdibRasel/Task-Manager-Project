@@ -11,7 +11,6 @@ import "../Total_View.css"
 const New = () => {
 
 
-
     
     let [DataList, SetDataList]= useState([]);
 
@@ -45,11 +44,19 @@ const New = () => {
             let SelectStatus = document.getElementById("SelectStatus").value
             
             alert(SelectStatus)
-
+            
             UpdateTaskByStatus(id, SelectStatus)
             
             window.location.reload()
         }
+
+        // const UpdateTest=()=>{
+        //     UpdateTaskStatus =(id, status)=>{
+        //         alert("Update Success")
+        //         UpdateTaskByStatus(id, status)
+        //         window.location.reload()
+        // }
+
 
 
     return (
@@ -98,20 +105,18 @@ const New = () => {
                                 </div>
                             </div>
                          </section> 
+                        // return alert(item.title)
                     })
                 }
 
 
+               
+
+            
+
 
         </div>
-
-
     );
-
-
-
-
-    
 };
 
 export default New;
