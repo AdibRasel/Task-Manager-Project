@@ -25,6 +25,10 @@ App.use(MongoSanitize())
 App.use(Xss())
 App.use(Hpp())
 
+// ইমেজ সাইজ বাড়ানোর জন্য
+App.use(express.json({limit:"50mb"}));
+App.use(express.urlencoded({limit:"50mb"}))
+
 
 // Body Parser Implement 
 App.use(BodyParser.json())

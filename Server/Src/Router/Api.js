@@ -22,6 +22,10 @@ Router.post("/LoginUser", UserController.LoginUser)
 Router.post("/ProfileUpdate", AuthVerifyMiddleware , UserController.ProfileUpdate)
 
 
+//Profile Detailas
+Router.get("/ProfileDetails", AuthVerifyMiddleware , UserController.ProfileDetails)
+
+
 
 // =====================Task===================== 
 //Task Create

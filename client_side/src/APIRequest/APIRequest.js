@@ -119,6 +119,22 @@ export function LoginRequest(Email, Password){
 }
 
 
+//get Profile Details
+export function GetProfileDetails(){
+    let URL = BaseURL+"/ProfileDetails"
+    axios.get(URL, AxiosHeader).then((Response)=>{
+        if(Response.status === 200){
+            // alert(Response)
+            // console.log(Response.data.data[0].Email)
+          return Response.data.data[0].Email
+        }else{
+            // return Res
+        }
+    }).catch((Err)=>{
+        console.log("GetProfile Faild from catch block")
+    })
+}
+
 
 // Token 
     const AxiosHeader ={headers:{"token":getToken()}}
@@ -209,7 +225,7 @@ export function TaskListByStatusTwo(Status){
     // let URL = "/api/v1/ReadProuct"
     return axios.get(URL, AxiosHeader).then((Response)=>{
             if(Response.status===200){
-                return Response.data.data
+                return Response.data["data"][0]
             }else{
                 return false
             }
