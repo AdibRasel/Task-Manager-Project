@@ -1,0 +1,15 @@
+.ProfilePageSee{
+    overflow: hidden;
+}
+
+.Right_Profile_Image_See{
+    float: left;
+}
+
+.Right_Profile_Image_See img{
+    width: 200px;
+}
+
+.Left_Profile_See{
+    float: right;
+}

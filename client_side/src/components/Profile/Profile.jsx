@@ -8,24 +8,6 @@ import { GetProfileDetails } from '../../APIRequest/APIRequest';
 const Profile = () => {
 
 
-    // let [ProfileList, SetProfileList]= useState([]);
-
-    // useEffect(()=>{
-
-    //     GetProfileDetails()
-    //     // .then((Response)=>{
-    //     //     SetProfileList(Response)
-    //     // })
-
-    // },[])
-
-    console.log(GetProfileDetails())
-    // alert(ProfileList)
-
-
-
-
-
     const LogOutBtn=()=>{
         localStorage.clear();
         window.location.href="/LoginPage"
@@ -38,6 +20,9 @@ const Profile = () => {
             
         <div className="Main_Profile_Box">
             <div className="Profile_Left_Side">
+                <a href="/UpdateProfile">
+                    <button className='btn btn-danger'> <i class="fas fa-edit"></i> Update Profile </button> <br />
+                </a>
                 <img src={getUserDetails()["Photo"]} alt="" /> <br />
                 <button className='btn btn-info' onClick={LogOutBtn}>Logout</button>
             </div>

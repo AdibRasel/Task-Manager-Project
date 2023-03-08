@@ -122,11 +122,11 @@ export function LoginRequest(Email, Password){
 //get Profile Details
 export function GetProfileDetails(){
     let URL = BaseURL+"/ProfileDetails"
-    axios.get(URL, AxiosHeader).then((Response)=>{
+    return axios.get(URL, AxiosHeader).then((Response)=>{
         if(Response.status === 200){
             // alert(Response)
             // console.log(Response.data.data[0].Email)
-          return Response.data.data[0].Email
+          return Response.data.data[0]
         }else{
             // return Res
         }
