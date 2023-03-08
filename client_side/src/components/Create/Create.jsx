@@ -50,7 +50,7 @@ const Create = () => {
                 </div>
                 <div className="Create_Task_Item">
                     <label htmlFor="">Task Description</label> <br />
-                    <textarea ref={(input)=>DescriptionRef=input} className='form-control' placeholder='Task Description' name="" id="" cols="30" rows="10">Task Description</textarea>
+                    <textarea ref={(input)=>DescriptionRef=input} className='form-control' placeholder='Task Description' name="" id="" cols="30" rows="10"></textarea>
                 </div>
                 <button onClick={CreateButton} className='btn btn-info'>Create</button>
             </div>

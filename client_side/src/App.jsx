@@ -18,6 +18,7 @@ import ForgetPassPage from "./pages/ForgetpassPage";
 
 
 import { getToken } from "./helper/SessionHelper";
+import Profile from "./components/Profile/Profile";
 // import Loder from "./components/FullScreenLoder/Loder";
 
 const App = () =>{
@@ -34,6 +35,7 @@ const App = () =>{
               <Route exact path="/CompletedPage" element={<CompletedPage/>}/>
               <Route exact path="/CanceldPage" element={<CanceldPage/>}/>
               <Route exact path="/ProfilePage" element={<ProfilePage/>}/>
+              <Route exact path="/Profile" element={<Profile/>}/>
               {/* <Route exact path="/LoginPage" element={<LoginPage/>}/> */}
               {/* <Route exact path="/RegistrationPage" element={<RegistrationPage/>}/> */}
               {/* <Route exact path="/ForgetPassPage" element={<ForgetPassPage/>}/> */}

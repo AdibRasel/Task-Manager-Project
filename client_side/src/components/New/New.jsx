@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // import {useSelector} from "react-redux";
 
 import {DeleteTask, TaskListByStatusTwo, UpdateTaskByStatus } from '../../APIRequest/APIRequest';
@@ -11,53 +11,43 @@ import "../Total_View.css"
 const New = () => {
 
 
-    
+
+
     let [DataList, SetDataList]= useState([]);
 
     useEffect(()=>{
       
-      TaskListByStatusTwo("New").then((Response)=>{
-  
+        TaskListByStatusTwo("New").then((Response)=>{
         SetDataList(Response)
   
       })
     },[]);
 
 
-        // Delete Task
-        const DeleteItem=(id)=>{
+    // Delete Task
+    const DeleteItem=(id)=>{
 
-            alert("Delete Task Success")
+        alert("Delete Task Success")
 
-            DeleteTask(id);
+        DeleteTask(id);
 
-            window.location.reload()
+        window.location.reload()
 
-        }
-
-
-        //Update Task status
-        const UpdateTaskStatus =(id)=>{
-            
-            
-            
-            let SelectStatus = document.getElementById("SelectStatus").value
-            
-            alert(SelectStatus)
-            
-            UpdateTaskByStatus(id, SelectStatus)
-            
-            window.location.reload()
-        }
-
-        // const UpdateTest=()=>{
-        //     UpdateTaskStatus =(id, status)=>{
-        //         alert("Update Success")
-        //         UpdateTaskByStatus(id, status)
-        //         window.location.reload()
-        // }
+    }
 
 
+    //Update Task status
+    let SelectStatus = useRef(null);
+    const UpdateTaskStatus =(id)=>{        
+        // let SelectStatus = document.getElementById("SelectStatus").value
+        let StatusValue = SelectStatus.value;
+        alert(StatusValue)
+        console.log(StatusValue)
+        
+        UpdateTaskByStatus(id, StatusValue)
+        
+        window.location.reload()
+    }
 
     return (
         <div>
@@ -91,7 +81,8 @@ const New = () => {
                                     <i class="fa-solid fa-calendar-days"><span className='datapadding'>{item.CreateDate}</span></i> <br />
                                     <i class="fa-sharp fa-solid fa-file-pen" >
                                     {/* <span>Status Update</span> */}
-                                    <select id='SelectStatus' onchange={()=>{UpdateTaskStatus()}}>
+                                    <select ref={(input)=>SelectStatus=input}>
+                                    {/* <select ref={SelectStatus}> */}
                                         <option value={item.status}> {item.status} </option>
                                         <option value="Cancel"> Cancel </option>
                                         <option value="Panding"> Panding </option>
@@ -105,18 +96,13 @@ const New = () => {
                                 </div>
                             </div>
                          </section> 
-                        // return alert(item.title)
                     })
                 }
-
-
-               
-
-            
-
-
         </div>
     );
+
+
+
 };
 
 export default New;

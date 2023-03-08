@@ -135,7 +135,7 @@ export function NewTaskRequest(Title, Description){
     return axios.post(URL, PostBody, AxiosHeader).then((Res)=>{
 
         if(Res.status===200){
-            alert("Create Task Success from then block API Request");
+            // alert("Create Task Success from then block API Request");
             return true
         }else{
             alert("Create Task Faild from then block in API Request");

@@ -6,6 +6,11 @@ const MyDesign = (props) => {
 
     let contentRef=useRef();
 
+    const LogOutBtn=()=>{
+        localStorage.clear();
+        window.location.href="/LoginPage"
+    }
+
     return (
         <div>
             <div className="Mynavbar">
@@ -44,10 +49,10 @@ const MyDesign = (props) => {
                 </nav>
                 <div className="Profile_Item">
                     <div className="P_Left">
-                        <a href="/LoginPage">Login</a>
+                        {/* <a href="/LoginPage"><button className="btn btn-info" onClick={LogOutBtn}>Logout</button></a> */}
                     </div>
                     <div className="P_Right">
-                        <a href="/RegistrationPage">Registration</a>
+                        <a href="/ProfilePage"><button className="btn btn-info">Profile</button></a>
                     </div>
                 </div>
             </div>
