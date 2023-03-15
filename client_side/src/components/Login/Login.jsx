@@ -62,7 +62,7 @@ const Login = () => {
 
                     <div className="col">
                     {/* <!-- Simple link --> */}
-                    <a href="#!">Forgot password?</a>
+                    <a href="/SendOTPPage">Forgot password?</a>
                     </div>
                 </div>
 

@@ -4,7 +4,11 @@
 }
 .Profile_Left_Side{
     float: left;
-    width: 40%;
+    width: 38%;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
 }
 .Profile_Left_Side img{
     border-radius: 10px;
@@ -12,9 +16,17 @@
 }
 .Profile_Left_Side button{
     margin-top: 10px;
+    margin-right: 5px;
     margin-bottom: 10px;
+    display: inline-block;
+}
+.Profile_Left_Side a{
+    display: inline-block;
 }
 .Profile_Right_Side{
     float: right;
     width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
 }

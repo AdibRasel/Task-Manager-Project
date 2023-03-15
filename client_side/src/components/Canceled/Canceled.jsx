@@ -72,8 +72,8 @@ const Canceled = () => {
                                 </div>
                                 <p>{item.description}</p>
                                 <div className="Totak_Task_Main_View_Left">
-                                    <i class="fa-solid fa-calendar-days"><span className='datapadding'>{item.CreateDate}</span></i> <br />
-                                    <i class="fa-sharp fa-solid fa-file-pen" >
+                                    <i className="fa-solid fa-calendar-days"><span className='datapadding'>{item.CreateDate}</span></i> <br />
+                                    <i className="fa-sharp fa-solid fa-file-pen" >
                                     {/* <span>Status Update</span> */}
                                     <select ref={(input)=>SelectStatus=input} id='SelectStatus'>
                                         <option value={item.status}> {item.status} </option>
@@ -82,7 +82,7 @@ const Canceled = () => {
                                         <option value="Complete"> Complete </option>
                                     </select>
                                     </i> <br />
-                                    <i class="fa-sharp fa-solid fa-trash" onClick={()=>{DeleteItem(item._id)}} ></i> <br />
+                                    <i className="fa-sharp fa-solid fa-trash" onClick={()=>{DeleteItem(item._id)}} ></i> <br />
                                 </div>
                                 <div className="Totak_Task_Main_View_Right">
                                     <button onClick={()=>{UpdateTaskStatus(item._id)}} className='btn btn-info taskstatustbtn'>Status Update</button>

@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import {BrowserRouter, Navigate, Route, Routes, Redirect} from "react-router-dom"
+// import {BrowserRouter, Navigate, Route, Routes, Redirect} from "react-router-dom"
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom"
 
 
 // Page Import 
@@ -16,10 +17,15 @@ import Page404 from "./pages/Page404";
 import ForgetPassPage from "./pages/ForgetpassPage";
 //Page Import end
 
+//OTP page import
+import CreatePasswordPage from "./pages/AccountRecover_Page/CreatePasswordPage"
+import SendOTPPage from "./pages/AccountRecover_Page/SendOTPPage"
+import VerifyOTPPage from "./pages/AccountRecover_Page/VerifyOTPPage"
+
 
 import { getToken } from "./helper/SessionHelper";
 import Profile from "./components/Profile/Profile";
-import UpdateProfile from "./components/Profile/UpdateProfile";
+// import UpdateProfile from "./components/Profile/UpdateProfile";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 // import Loder from "./components/FullScreenLoder/Loder";
 
@@ -61,8 +67,16 @@ const App = () =>{
               <Route exact path="/LoginPage" element={<LoginPage/>}/>
               <Route exact path="/RegistrationPage" element={<RegistrationPage/>}/>
               <Route exact path="/ForgetPassPage" element={<ForgetPassPage/>}/>
-              <Route exact path="*" element={<Page404/>}/>
-              {/* <Loder /> */}
+              <Route exact path="*" element={<LoginPage/>}/>
+
+
+            {/* =========OTP page============ */}
+            <Route exact path="/CreatePasswordPage" element={< CreatePasswordPage />}/>
+            <Route exact path="/SendOTPPage" element={< SendOTPPage />}/>
+            <Route exact path="/VerifyOTPPage" element={< VerifyOTPPage />}/>
+            {/* =========OTP Page End============ */}
+
+
             </Routes>
           </BrowserRouter>
         </Fragment>

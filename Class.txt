@@ -7,3 +7,5 @@ class 35 , Reistration API Call Redirect to login
 class 36, User Login Set JWT toekn
 class 37 conditional routing depending on token
 Class 40 Working With API Call
+
+class 59 Recover VerifyEmail API Creation 

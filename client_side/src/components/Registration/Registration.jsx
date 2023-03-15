@@ -89,7 +89,7 @@ const Registration = () => {
             </div>
             <div className="signIn_forgetPassword">
                 <a href="/LoginPage">Sign in</a> <br />
-                <a href="">Forget Password</a>
+                <a href="/SendOTPPage">Forget Password</a>
             </div>
            </div>
 

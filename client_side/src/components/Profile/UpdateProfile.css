@@ -8,8 +8,16 @@
 
 .Right_Profile_Image_See img{
     width: 200px;
+    border-radius: 10px;
 }
 
 .Left_Profile_See{
     float: right;
+}
+.ButtonProfileUpdate{
+
+}
+.ButtonProfileUpdate button{
+    margin-top: 10px;
+    width: 100%;
 }

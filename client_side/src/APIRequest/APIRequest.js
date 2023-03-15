@@ -1,7 +1,7 @@
 import axios from "axios"
 // import React, { useRef } from 'react';
 
-import { getToken, setToken, setUserDetails } from "../helper/SessionHelper";
+import { getToken, setEmail, setOTP, setToken, setUserDetails } from "../helper/SessionHelper";
 
 // React Reducx import
 import store from "../redux/stor/store";
@@ -19,10 +19,6 @@ const BaseURL = "http://localhost:5000/api/v1"
 
 // Registration Request function
 export function RegistrationRequest(Email, FirstName, LasttName, Mobile, Password, Photo){
-    
-    // loder stop display none
-    // store.dispatch(ShowLoader())
-    // let LoderDisplay = useRef()
     
     let URL = BaseURL+"/Registration"
     let PostBody = {
@@ -119,6 +115,12 @@ export function LoginRequest(Email, Password){
 }
 
 
+
+// Token 
+const AxiosHeader ={headers:{"token":getToken()}}
+// Token end 
+
+
 //get Profile Details
 export function GetProfileDetails(){
     let URL = BaseURL+"/ProfileDetails"
@@ -136,9 +138,12 @@ export function GetProfileDetails(){
 }
 
 
-// Token 
-    const AxiosHeader ={headers:{"token":getToken()}}
-// Token end 
+
+
+
+
+
+
 
 
 
@@ -224,14 +229,36 @@ export function TaskListByStatusTwo(Status){
 
     // let URL = "/api/v1/ReadProuct"
     return axios.get(URL, AxiosHeader).then((Response)=>{
-            if(Response.status===200){
-                return Response.data["data"][0]
+            
+        if(Response.status===200){
+            // return Response.data["data"][0]
+                return Response.data.data
             }else{
+                // return Response.data["data"][0]
                 return false
             }
         }).catch((Error)=>{
             console.log(Error)
             return false
+        })
+
+}
+
+
+// Task List By Status Three
+export function TaskListByStatusThree(Status){
+
+    let URL = BaseURL+"/ListTaskByStatus/"+Status;
+
+    // let URL = "/api/v1/ReadProuct"
+    return axios.get(URL, AxiosHeader).then((Response)=>{
+            console.log(Response.data.data)
+            // return Response.data["data"][0]
+            return Response.data.data
+          
+        }).catch((Error)=>{
+            console.log(Error)
+            // return false
         })
 }
 
@@ -288,4 +315,181 @@ export function UpdateTaskByStatus(id, status){
         alert("Update Faild in APIRequest catch block")
         return false
     })
+}
+
+
+
+
+
+
+// Profile Update
+export function ProfileUpdate(FirstName, LasttName, Mobile, Password, Photo){
+    // let URL = BaseURL+"/ProfileUpdate";
+    const URL = BaseURL+"/ProfileUpdate"
+    let PostBody = {
+        FirstName:FirstName,
+        LasttName:LasttName,
+        Mobile:Mobile,
+        Password:Password,
+        Photo: Photo
+    }
+    let UserDetails = {
+        FirstName:FirstName,
+        LasttName:LasttName,
+        Mobile:Mobile,
+        Photo: Photo
+    }
+    return axios.post(URL, PostBody, AxiosHeader).then((Res)=>{
+
+        if(Response.status===200){
+            alert("Update Faild in APIRequest then block 123")
+            // setUserDetails(Res)
+            setUserDetails(UserDetails)
+            
+            return true;
+        }else{
+            alert("Update Success in APIRequest then block")
+
+            setUserDetails(UserDetails)
+
+            return false
+        }
+
+    }).catch((Err)=>{
+        alert("Update Faild in APIRequest catch block" + Err)
+
+        return false
+    })
+}
+
+
+// Profile Update Two
+export function ProfileUpdateTwo(FirstName, LasttName, Mobile, Password){
+    const URL = BaseURL+"/ProfileUpdate"
+    let PostBody = {
+        FirstName:FirstName,
+        LasttName:LasttName,
+        Mobile:Mobile,
+        Password:Password,
+        // Photo: Photo
+    }
+    return axios.post(URL, AxiosHeader).then((Result)=>{
+        if(Response.status===200){
+            alert("Update Faild in APIRequest then block")
+            return true;
+        }else{
+            alert("Update Success in APIRequest then block")
+            return false
+        }
+    }).catch((Err)=>{
+        alert("Update Faild in APIRequest catch block" + Err)
+
+        return false
+    })
+}
+
+
+
+// Recover password Step 01 Send OTP
+export function RecoverVerifyEmailRequest(Email){
+
+    let URL = BaseURL+"/RecoverVerifyEmail/"+Email
+    return axios.get(URL).then((Response)=>{
+        setEmail(Email)
+        if(Response.status===200){
+            
+
+            if(Response.data['status']=== 'Success'){
+
+                setEmail(Email)
+                alert("A 6 Digit verification code has been sent to your email address")
+                return true;
+
+
+            }else{
+                alert("Email not find")
+                return false;
+            }
+
+
+        }else{
+            alert("Faild in then block else")
+            return false;
+        }
+
+    }).catch((Err)=>{
+        alert("Error in Catch Block")
+        return false;
+    })
+
+}
+
+
+
+// Recover password Step 02 Veryfi OTP
+export function RecoverVerifyOTPRequest(email, OTP){
+
+    let URL = BaseURL+"/RecoverVerifyOTP/"+email+"/"+OTP
+    // let URL = BaseURL+"/RecoverVerifyOTP"
+    // let PostBody = {
+    //     email:"softzonesapur@gmail.com",
+    //     otp: OTPValue
+    // }
+    return axios.get(URL).then((Response)=>{
+
+        if(Response.status===200){
+           
+
+            if(Response.data['status']=== 'Success'){
+
+                setOTP(OTP)
+                alert("OTP Code varifaction Success")
+                return true;
+
+
+            }else{
+                alert("Invalit OTP Code = " + Response.data['status'] + email + OTP)
+                return false;
+            }
+
+
+        }else{
+            alert("Faild in then block else")
+            return false;
+        }
+
+    }).catch((Err)=>{
+        alert("Error in Catch Block -----"+ Err)
+        return false;
+    })
+
+}
+
+
+
+// Recover password Step 03 Reset Password
+export function RecoverResetPassword(Email, OTP, Password){
+
+    let URL = BaseURL+"/RecoverResetPass"
+
+    let PostBody={
+        email:Email,
+        otp: OTP,
+        Password : Password
+    }
+
+    return axios.post(URL, PostBody).then((Response)=>{
+
+        if(Response.status===200){
+            // Messange 
+            alert("Success")
+            return true;
+        }else{
+            alert("Faild in then block else")
+        }
+
+    }).catch((Err)=>{
+        alert("Error in Catch Block")
+    })
+
 }

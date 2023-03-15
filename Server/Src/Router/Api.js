@@ -50,7 +50,15 @@ Router.get("/TotalCountStatsTask", AuthVerifyMiddleware , TaskController.TotalCo
 
 
 
+// Recover Verify Email setp 1
+Router.get("/RecoverVerifyEmail/:email" , UserController.RecoverVerifyEmail)
 
+// Recover Verify OTP setp 2
+// Router.get("/RecoverVerifyOTP/:email/:otp" , UserController.RecoverVerifyOTP)
+Router.get("/RecoverVerifyOTP/:email/:otp" , UserController.RecoverVerifyOTP)
+
+// Recover Reset Password
+Router.post("/RecoverResetPass" , UserController.RecoverResetPass)
 
 
 

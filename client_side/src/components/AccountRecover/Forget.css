@@ -1,0 +1,27 @@
+.Main_Send_OTP_Box{
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+.Forget_Next{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.Back_Button{
+    margin-top: 10px;
+    overflow: hidden;
+}
+.Back_Button button{
+
+}
+
+
+.Back_Button_Left{
+    float: left;
+}
+.Back_Button_Right{
+    float: right;
+}
