@@ -41,23 +41,6 @@ exports.LoginUser=(Req, Res)=>{
 }
 
 
-
-
-
-// Profile Update 
-exports.ProfileUpdate=(Req, Res)=>{
-    let Email = Req.headers["email"];
-    let ReqBody = Req.body;
-    UserModel.updateOne({email:Email}, ReqBody, (Err, Data)=>{
-        if(Err){
-            Res.status(400).json({status:"Fail", data:Err})
-        }else{
-            Res.status(200).json({status:"Success", data:Data})
-        }
-    })
-}
-
-
 //Profile Details 
 exports.ProfileDetails=(Req, Res)=>{
     let email = Req.body["email"];
@@ -74,7 +57,18 @@ exports.ProfileDetails=(Req, Res)=>{
 }
 
 
-
+// Profile Update 
+exports.ProfileUpdate=(Req, Res)=>{
+    let Email = Req.headers["email"];
+    let ReqBody = Req.body;
+    UserModel.updateOne({email:Email}, ReqBody, (Err, Data)=>{
+        if(Err){
+            Res.status(400).json({status:"Fail", data:Err})
+        }else{
+            Res.status(200).json({status:"Success", data:Data})
+        }
+    })
+}
 
 
 

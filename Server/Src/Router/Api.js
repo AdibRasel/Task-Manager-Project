@@ -18,13 +18,11 @@ Router.post("/Registration", UserController.Registration)
 Router.post("/LoginUser", UserController.LoginUser)
 
 
-//Profile Update
-Router.post("/ProfileUpdate", AuthVerifyMiddleware , UserController.ProfileUpdate)
-
-
 //Profile Detailas
 Router.get("/ProfileDetails", AuthVerifyMiddleware , UserController.ProfileDetails)
 
+//Profile Update
+Router.post("/ProfileUpdate", AuthVerifyMiddleware , UserController.ProfileUpdate)
 
 
 // =====================Task===================== 

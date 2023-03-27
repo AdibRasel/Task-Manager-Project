@@ -1,7 +1,7 @@
 import axios from "axios"
 // import React, { useRef } from 'react';
 
-import { getToken, setEmail, setOTP, setToken, setUserDetails } from "../helper/SessionHelper";
+import { getEmail, getToken, setEmail, setOTP, setToken, setUserDetails } from "../helper/SessionHelper";
 
 // React Reducx import
 import store from "../redux/stor/store";
@@ -14,6 +14,10 @@ import { SetCanceledTask, SetComplateTask, SetNewTask, SetProgressTask } from ".
 
 // const BaseURL = "https://taskmanagerproject-p0m3.onrender.com/api/v1"
 const BaseURL = "http://localhost:5000/api/v1"
+
+// Token 
+const AxiosHeader ={headers:{"Token":getToken()}}
+// Token end 
 
 // LoderDisplay = useRef()
 
@@ -116,15 +120,13 @@ export function LoginRequest(Email, Password){
 
 
 
-// Token 
-const AxiosHeader ={headers:{"token":getToken()}}
-// Token end 
 
 
 //get Profile Details
 export function GetProfileDetails(){
     let URL = BaseURL+"/ProfileDetails"
-    return axios.get(URL, AxiosHeader).then((Response)=>{
+    // let PostBody = getEmail()
+    return axios.get(URL, AxiosHeader ).then((Response)=>{
         if(Response.status === 200){
             // alert(Response)
             // console.log(Response.data.data[0].Email)

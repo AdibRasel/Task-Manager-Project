@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { LoginRequest } from '../../APIRequest/APIRequest';
+import { setEmail } from '../../helper/SessionHelper';
 import "./Login.css"
 
 const Login = () => {
@@ -20,6 +21,7 @@ const Login = () => {
 
             LoginRequest(Email, Password).then((Res)=>{
                 if(Res === true){
+                    setEmail(Email)
                     alert("Login Success from login page");
                     window.location.href="/"
                 }
