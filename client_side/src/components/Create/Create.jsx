@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import {useNavigate} from "react-router-dom"
 import { NewTaskRequest } from '../../APIRequest/APIRequest';
+import cogoToast from 'cogo-toast';
 
 
 import "./Create.css"
@@ -16,19 +17,19 @@ const Create = () => {
         let Description = DescriptionRef.value;
 
         if(Title >= 0){
-            alert("Please Type Title Name")
+            cogoToast.error('Please Type Title Name');
         }else if(Description >= 0){
-            alert("Please Type Description")
+            cogoToast.error('Please Type Description')
         }else{
 
             NewTaskRequest(Title, Description).then((Res)=>{
 
                 if(Res===true){
-                    alert("Create Success from Create Page then block")
+                    cogoToast.success('Task Create Success')
                     Navigates("/NewPage")
 
                 }else{
-                    alert("Create Faild from Create Page then blcok")
+                    cogoToast.error('Create Faild from Create Page then blcok')
                 }
 
             })

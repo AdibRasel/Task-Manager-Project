@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import cogoToast from 'cogo-toast';
 import { useNavigate } from "react-router-dom";
 import "./Registration.css"
 
@@ -26,15 +27,15 @@ const Registration = () => {
 
         //Validation 
         if(Email.length <= 4){
-            alert("Please Type Curret Email Address")
+            cogoToast.warn('Please Type Curret Email Address');
         }else if(FirstName.length <= 2){
-            alert("Please Type your Currect First Name")
+            cogoToast.warn('Please Type your Currect First Name');
         }else if(LastName.length <= 2){
-            alert("Please Type your Currect Last Name")
+            cogoToast.warn('Please Type your Currect Last Name');
         }else if (Mobile.length <= 2){
-            alert("Please Type your Currect Mobile")
+            cogoToast.warn('Please Type your Currect Mobile');
         }else if(Password.length <= 3){
-            alert("Please Type your Currect Password")
+            cogoToast.warn('Please Type your Currect Password');
         }else{
 
             // LoderDisplay.classList.add("Display_None")
@@ -42,7 +43,7 @@ const Registration = () => {
             // alert("Success")
             RegistrationRequest(Email, FirstName, LastName, Mobile, Password, Photo).then((result)=>{
                 if(result===true){
-                    alert("Success")
+                    cogoToast.success('Registration Success');
                     navigateUse ("/LoginPage")
                 }
 

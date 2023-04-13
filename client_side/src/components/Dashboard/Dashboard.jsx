@@ -3,31 +3,19 @@ import { TotalCountStatsTask } from '../../APIRequest/APIRequest';
 import "./Dashboard.css"
 
 const Dashboard = () => {
-
-
         
     let [DataList, SetDataList]= useState([]);
 
     useEffect(()=>{
-      
         TotalCountStatsTask().then((Response)=>{
-  
         SetDataList(Response)
-
       })
-
-        // TotalCountStatsTask()
-        // console.log(TotalCountStatsTask())
-
-
-
     },[])
 
-    
+
 
     return (
         <div>
-            
             {
                 DataList.map((item, i)=>{
                 return <div className="col-12 col-lg-3 col-sm-6 col-md-3 p-2 DashboardBox">
@@ -38,10 +26,6 @@ const Dashboard = () => {
                 </div>
                 })
             }
-
-         
-
-
         </div>
     );
 };

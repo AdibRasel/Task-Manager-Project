@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import cogoToast from 'cogo-toast';
 // const ReactCodeInput = dynamic(import('react-code-input'));
 import ReactCodeInput from "react-code-input";
 import { RecoverVerifyOTPRequest } from '../../APIRequest/APIRequest';
@@ -42,17 +43,19 @@ const VerifyOTP = () => {
         if(OTP < 5){
 
             alert("Enter 6 Digit Code")
+            cogoToast.warn('Enter 6 Digit Code');
 
         }else {
 
             RecoverVerifyOTPRequest(getEmail(), OTP).then((Result)=>{
                 
                 if(Result===true){
+                    cogoToast.success('OTP Code varifaction Success');
                     navigateUse("/CreatePasswordPage")    
                 }
 
             }).catch((Err)=>{
-                alert("Error in Verify OTP")
+                cogoToast.error('OTP Verify Faild');
             })
 
 

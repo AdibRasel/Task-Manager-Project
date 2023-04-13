@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import cogoToast from 'cogo-toast';
 import { DeleteTask, TaskListByStatusTwo, UpdateTaskByStatus } from '../../APIRequest/APIRequest';
 
 import "../Total_View.css"
@@ -22,7 +23,7 @@ const Completed = () => {
         // Delete Task
         const DeleteItem=(id)=>{
 
-            alert("Delete Task Success")
+            cogoToast.success('Delete Task Success');
 
             DeleteTask(id);
 
@@ -34,7 +35,7 @@ const Completed = () => {
         //Update Task status
         const UpdateTaskStatus =(id)=>{        
             // let SelectStatus = document.getElementById("SelectStatus").value
-            // alert(SelectStatus.value)
+            cogoToast.success('Task Update Success');
             let StatusValue = SelectStatus.value
             
             UpdateTaskByStatus(id, StatusValue)

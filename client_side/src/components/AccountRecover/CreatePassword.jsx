@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import cogoToast from 'cogo-toast';
 import { RecoverResetPassword } from '../../APIRequest/APIRequest';
 import { useNavigate } from "react-router-dom";
 import { getEmail, getOTP } from '../../helper/SessionHelper';
@@ -15,18 +16,18 @@ const CreatePassword = () => {
         let ConfirmPassword = ConfirmPasswordRef.value;
 
         if(Password >= 3){
-            alert("Please type your password in above 3 caractor")
+            cogoToast.info('Please type your password in above 3 caractor');
         }else if(ConfirmPassword >=3){
-            alert("type your pass above in 3")
+            cogoToast.info('type your pass above in 3');
         }else if(Password !== ConfirmPassword){
-            alert("Password & Confirm Passwoed should be seem")
+            cogoToast.info('Password & Confirm Passwoed should be seem');
         }else{
 
             RecoverResetPassword(Email, OTP, ConfirmPassword).then((Response)=>{
 
                 // navigateUse("/LoginPage")
                 if(Response===true){
-                    alert(Email + OTP)
+                    cogoToast.success('Password Change Success');
                     navigateUse("/LoginPage")   
                 }
 

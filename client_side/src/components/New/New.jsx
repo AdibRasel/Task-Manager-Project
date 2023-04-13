@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import cogoToast from 'cogo-toast';
 // import {useSelector} from "react-redux";
 
 import {DeleteTask, TaskListByStatusThree, TaskListByStatusTwo, UpdateTaskByStatus } from '../../APIRequest/APIRequest';
@@ -30,7 +31,7 @@ const New = () => {
     // Delete Task
     const DeleteItem=(id)=>{
 
-        alert("Delete Task Success")
+        cogoToast.success('Delete Task Success');
 
         DeleteTask(id);
 
@@ -43,10 +44,10 @@ const New = () => {
     const UpdateTaskStatus =(id)=>{        
         // let SelectStatus = document.getElementById("SelectStatus").value
         let StatusValue = SelectStatus.value;
-        // alert(StatusValue)
         // console.log(StatusValue)
         
         UpdateTaskByStatus(id, StatusValue)
+        cogoToast.success('Task Update Success');
         
         window.location.reload()
     }

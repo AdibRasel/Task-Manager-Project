@@ -1,4 +1,5 @@
 import axios from "axios"
+import cogoToast from 'cogo-toast';
 // import React, { useRef } from 'react';
 
 import { getEmail, getToken, setEmail, setOTP, setToken, setUserDetails } from "../helper/SessionHelper";
@@ -46,10 +47,10 @@ export function RegistrationRequest(Email, FirstName, LasttName, Mobile, Passwor
             if(res.data["status"]=== "Fail"){
                 // email exist kore ki na seta chack kora hoyeche
                 if(res.data.data.keyPattern.Email ===1){
-                    alert("Email Already Exist");
+                    cogoToast.error('Email Already Exist');
                     return false
                 }else{
-                    alert("Something Went Wrong" + res)
+                    cogoToast.error('Something Went Wrong');
                     console.log(res);
                     return false;
                 }
@@ -57,7 +58,7 @@ export function RegistrationRequest(Email, FirstName, LasttName, Mobile, Passwor
             }else{
                 // LoderDisplay.classList.remove("Display_None")
 
-                alert("Success");
+                cogoToast.success('Registration Success');
                 return true;
 
             }
@@ -106,14 +107,14 @@ export function LoginRequest(Email, Password){
             setUserDetails(Res.data["data"])
             // Token
 
-            alert("Login Success From API Request")
+            cogoToast.success('Login Success');
             return true;
         }else{
-            alert("Login Faild From API Request")
+            cogoToast.error('Login Faild');
             return false;
         }
     }).catch((Err)=>{
-        alert("Login Faild From API Request");
+        cogoToast.error('Login Faild');
         return false;
     })
 }
@@ -285,15 +286,15 @@ export function DeleteTask(id){
     return axios.get(URL, AxiosHeader).then((Res)=>{
 
         if(Response.status===200){
-            alert("Delete Faild in APIRequest then block")
+            cogoToast.error('Delete Faild in APIRequest then block');
             return true;
         }else{
-            alert("Delete Success in APIRequest then block")
+            cogoToast.success('Task Delete Success');
             return false
         }
 
     }).catch((Err)=>{
-        alert("Delete Faild in APIRequest catch block")
+        cogoToast.error('Delete Faild in APIRequest catch block');
         return false
     })
 
@@ -306,15 +307,15 @@ export function UpdateTaskByStatus(id, status){
     return axios.get(URL, AxiosHeader).then((Res)=>{
 
         if(Response.status===200){
-            alert("Update Faild in APIRequest then block")
+            cogoToast.error('Update Faild in APIRequest then block');
             return true;
         }else{
-            alert("Update Success in APIRequest then block")
+            cogoToast.success('Task Update Success');
             return false
         }
 
     }).catch((Err)=>{
-        alert("Update Faild in APIRequest catch block")
+        cogoToast.error('Update Faild in APIRequest catch block');
         return false
     })
 }
@@ -350,7 +351,8 @@ export function ProfileUpdate(FirstName, LasttName, Mobile, Password, Photo){
             
             return true;
         }else{
-            alert("Update Success in APIRequest then block")
+            // alert("Update Success in APIRequest then block 1")
+            cogoToast.success('Profile Update Success');
 
             setUserDetails(UserDetails)
 
@@ -381,6 +383,7 @@ export function ProfileUpdateTwo(FirstName, LasttName, Mobile, Password){
             return true;
         }else{
             alert("Update Success in APIRequest then block")
+            cogoToast.success('Update Success in APIRequest then block');
             return false
         }
     }).catch((Err)=>{
@@ -445,23 +448,23 @@ export function RecoverVerifyOTPRequest(email, OTP){
             if(Response.data['status']=== 'Success'){
 
                 setOTP(OTP)
-                alert("OTP Code varifaction Success")
+                cogoToast.success('OTP Code varifaction Success');
                 return true;
 
 
             }else{
-                alert("Invalit OTP Code = " + Response.data['status'] + email + OTP)
+                cogoToast.warn('Invalit OTP Code');
                 return false;
             }
 
 
         }else{
-            alert("Faild in then block else")
+            cogoToast.warn('Faild in then block else');
             return false;
         }
 
     }).catch((Err)=>{
-        alert("Error in Catch Block -----"+ Err)
+        cogoToast.warn('Faild in then Catch else');
         return false;
     })
 

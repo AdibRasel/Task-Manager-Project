@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import cogoToast from 'cogo-toast';
 import { RecoverVerifyEmailRequest } from '../../APIRequest/APIRequest';
 import { setEmail } from '../../helper/SessionHelper';
 import { useNavigate } from "react-router-dom";
@@ -16,7 +17,7 @@ const SendOTP = () => {
     const VerifyEmail =()=>{
         let Email = EmailRef.value;
         if(Email < 2){
-            alert("Please Type your Email Address")
+            cogoToast.warn('Please Type your Email Address');
         }else{
             
 

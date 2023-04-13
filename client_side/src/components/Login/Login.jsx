@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import cogoToast from 'cogo-toast';
 import { LoginRequest } from '../../APIRequest/APIRequest';
 import { setEmail } from '../../helper/SessionHelper';
 import "./Login.css"
@@ -14,19 +15,19 @@ const Login = () => {
 
         // validation start 
         if(EmailRef.value <= 2){
-            alert("Please Type Your Email Address")
+            cogoToast.warn('Please Type Your Email Address');
         }else if(PassRef.value <= 2){
-            alert("Please Type your Password")
+            cogoToast.warn('Please Type your Password');
         }else{
 
             LoginRequest(Email, Password).then((Res)=>{
                 if(Res === true){
                     setEmail(Email)
-                    alert("Login Success from login page");
+                    cogoToast.success('Login Success');
                     window.location.href="/"
                 }
             }).catch((Err)=>{
-                alert("Login Faild From Login Page");
+                cogoToast.error('Login Faild');
                 return false;
             })
 
