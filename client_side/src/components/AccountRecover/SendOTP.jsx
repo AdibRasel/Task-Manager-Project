@@ -10,6 +10,7 @@ import "./Forget.css"
 const SendOTP = () => {
 
     let navigateUse = useNavigate()
+    let Loders = useRef()
 
 
     let EmailRef = useRef();
@@ -18,6 +19,7 @@ const SendOTP = () => {
         let Email = EmailRef.value;
         if(Email < 2){
             cogoToast.warn('Please Type your Email Address');
+            
         }else{
             
 
