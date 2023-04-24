@@ -1,6 +1,6 @@
 // import React, { useEffect, useRef, useState } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
-import cogoToast from 'cogo-toast';
+// import cogoToast from 'cogo-toast';
 import { GetProfileDetails, ProfileUpdate, ProfileUpdateTwo } from '../../APIRequest/APIRequest';
 import { setUserDetails } from '../../helper/SessionHelper';
 
@@ -49,16 +49,16 @@ const UpdateProfile = () => {
 
         //Validation 
         if(FirstNameValue <= 4){
-            cogoToast.error('Please Type your Currect First Name');
+            alert('Please Type your Currect First Name');
         }else if(LasttNameValue <= 2){
-            cogoToast.error('Please Type your Currect Last Name');
+            alert('Please Type your Currect Last Name');
         }else if(MobileValue <= 2){
-            cogoToast.error('TPlease Type your Currect Mobile Number');
+            alert('TPlease Type your Currect Mobile Number');
         }else if(PasswordValue <= 3){
-            cogoToast.error('Please Type your Currect Password');
+            alert('Please Type your Currect Password');
         }
         else if(PhotoValue <= 1){
-            cogoToast.error('Please Type your Currect Password');
+            alert('Please Type your Currect Password');
         }
         else{
 
@@ -75,11 +75,11 @@ const UpdateProfile = () => {
                         Photo: PhotoValue
                     }
                     setUserDetails(UserDetails)
-                    cogoToast.success('Profile Update Success');
+                    alert('Profile Update Success');
                 }
                 // LoderDisplay.classList.remove("Display_None")
             }).catch((Err)=>{
-                cogoToast.error('"Update Faild in Profile Update Page block');
+                alert('"Update Faild in Profile Update Page block');
                 // return false
             })
         }
